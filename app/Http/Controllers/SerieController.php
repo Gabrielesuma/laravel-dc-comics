@@ -37,7 +37,19 @@ class SerieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+        //$new_serie = new Serie();
+        //$new_serie->fill($form_data);
+        /*$new_serie->title = $form_data['title'];
+        $new_serie->description = $form_data['description'];
+        $new_serie->image = $form_data['image'];
+        $new_serie->price = $form_data['price'];
+        $new_serie->serie = $form_data['serie'];
+        $new_serie->sale_date = $form_data['sale_date'];
+        $new_serie->type = $form_data['type'];*/
+        //$new_serie->save();
+        $new_serie = Serie::create($form_data);
+        return redirect()->route('series.index');
     }
 
     /**

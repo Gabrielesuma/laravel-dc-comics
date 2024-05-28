@@ -9,7 +9,7 @@
         @foreach ($series as $serie)
             <div class="col-12 col-md-6 col-lg-2 mb-4">
                 <div class="card">
-                    <img src="{{$serie->image}}" class="card-img-top" alt="Thumb">
+                    <img src="{{$serie->image}}" class="card-img-top" alt="{{$serie->title}}">
                     <div class="card-body">
                         <h5 class="card-title">{{$serie->title}}</h5>
                         <a href="{{route('series.show', $serie->id)}}" class="btn btn-primary">Scopri</a>
