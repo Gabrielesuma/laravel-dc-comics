@@ -70,9 +70,9 @@ class SerieController extends Controller
      * @param  int  $id
      * 
      */
-    public function edit($id)
+    public function edit(Serie $series)
     {
-        return view('series.edit');
+        return view('series.edit', compact('series'));
     }
 
     /**
@@ -82,9 +82,20 @@ class SerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Serie $series)
     {
-        //
+        //$serie = Serie::find($id);
+        $form_data = $request->all();
+        /*$serie->title = $form_data['title'];
+        $serie->description = $form_data['description'];
+        $serie->image = $form_data['image'];
+        $serie->price = $form_data['price'];
+        $serie->serie = $form_data['serie'];
+        $serie->sale_date = $form_data['sale_date'];
+        $serie->type = $form_data['type'];*/
+        //$serie->update();
+        $series->update($form_data);
+        return redirect()->route('series.show', $series->id);
     }
 
     /**
@@ -93,8 +104,9 @@ class SerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Serie $series)
     {
-        //
+        $series->delete();
+        return redirect()->route('series.index');
     }
 }

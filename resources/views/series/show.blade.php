@@ -16,6 +16,14 @@
                 <div>
                     Price: {{$series->price}}
                 </div>
+                <div>
+                    <!--<a href="{{route('series.destroy', $series->id)}}" class="btn btn-primary">Elimina</a>-->
+                    <form action="{{route('series.destroy', $series->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="Rimuovi" class="btn btn-danger">
+                    </form>
+                </div>
             </div>
         </div>
     </section>
