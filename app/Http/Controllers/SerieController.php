@@ -22,11 +22,11 @@ class SerieController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function create()
     {
-        //
+        return view('series.create');
     }
 
     /**
@@ -43,23 +43,24 @@ class SerieController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  object Product  $id
+     * @param  object Serie  $id
      *
      */
-    public function show(Serie $serie)
+    public function show(Serie $series)
     {
-        return view('series.show', compact('serie'));
+        //dd($series->id);
+        return view('series.show', compact('series'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function edit($id)
     {
-        //
+        return view('series.edit');
     }
 
     /**
