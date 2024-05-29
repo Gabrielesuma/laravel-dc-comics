@@ -8,34 +8,42 @@
         @method('PUT')
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" aria-describedby="titleHelp" value="{{$series->title}}" name="title" required>
-            <div id="titleHelp" class="form-text">booh</div>
+            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" aria-describedby="titleHelp" value="{{old('title', $series->title)}}" name="title">
+            @error('title')
+                <div class="alert alert-danger">{{$message}}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
             <textarea name="description" id="description" cols="30" rows="10" class="form-control">
-                {{$series->description}}
+                {{old('description', $series->description)}}
             </textarea>
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Image</label>
-            <input type="text" class="form-control" id="image" value="{{$series->image}}" name="image">
+            <input type="text" class="form-control" id="image" value="{{old('image', $series->image)}}" name="image">
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <input type="text" class="form-control" id="price" value="{{$series->price}}" name="price">
+            <input type="text" class="form-control" id="price" value="{{old('price', $series->price)}}" name="price">
         </div>
         <div class="mb-3">
             <label for="serie" class="form-label">Serie</label>
-            <input type="text" class="form-control" id="serie" value="{{$series->serie}}" name="serie" required>
+            <input type="text" class="form-control @error('serie') is-invalid @enderror" id="serie" value="{{old('serie', $series->serie)}}" name="serie">
+            @error('serie')
+                <div class="alert alert-danger">{{$message}}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="sale_date" class="form-label">Date</label>
-            <input type="text" class="form-control" id="sale_date" value="{{$series->sale_date}}" name="sale_date" required>
+            <input type="text" class="form-control @error('sale_date') is-invalid @enderror" id="sale_date" value="{{old('sale_date', $series->sale_date)}}" name="sale_date">
+            @error('sale_date')
+                <div class="alert alert-danger">{{$message}}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="type" class="form-label">Type</label>
-            <select class="form-control" id="type" value="{{$series->type}}" name="type" required>
+            <select class="form-control" id="type" value="{{old('type', $series->type)}}" name="type">
                 <option value="comic book" {{$series->type === 'comic book' ? 'selected' : ''}} >book</option>
                 <option value="graphic novel" {{$series->type === 'graphic novel' ? 'selected' : ''}}>novel</option>
             </select>

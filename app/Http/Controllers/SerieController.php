@@ -37,6 +37,16 @@ class SerieController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title'=>'required|max:255',
+            'description'=>'nullable',
+            'image'=>'nullable',
+            'price'=>'nullable',
+            'serie'=>'required|max:255',
+            'sale_date'=>'required',
+            'type'=>'required|max:255'
+        ]);
+
         $form_data = $request->all();
         //$new_serie = new Serie();
         //$new_serie->fill($form_data);
@@ -84,6 +94,15 @@ class SerieController extends Controller
      */
     public function update(Request $request, Serie $series)
     {
+        $request->validate([
+            'title'=>'required|max:255',
+            'description'=>'nullable',
+            'image'=>'nullable',
+            'price'=>'nullable',
+            'serie'=>'required|max:255',
+            'sale_date'=>'required',
+            'type'=>'required|max:255'
+        ]);
         //$serie = Serie::find($id);
         $form_data = $request->all();
         /*$serie->title = $form_data['title'];
